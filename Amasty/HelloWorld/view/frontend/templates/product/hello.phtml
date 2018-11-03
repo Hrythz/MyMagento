@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (http://www.amasty.com)
+ * @package Amasty_HelloWorld
+ */
+
+?>
+<div class="amasty-helloworld-block" style="text-align: <?= $this->getTextAlign()?>">
+
+    <!-- get image from upload directory then display on product page -->
+    <img src="http://127.0.0.1/mymagento/pub/media/test/default/harith.jpg" alt="google" width="150" height="75">
+
+    <?php foreach($this->getCollection() as $item):?>
+        <p><label><?= __("Title: ") . $item->getLabel()?></label> -- <label><?=  __("Value: ") . $item->getValue();?></label></p>
+    <?php endforeach;?>
+</div>

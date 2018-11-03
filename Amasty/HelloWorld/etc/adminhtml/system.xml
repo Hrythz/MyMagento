@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (http://www.amasty.com)
+ * @package Amasty_HelloWorld
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../../vendor/magento/module-config/etc/system_file.xsd">
+    <system>
+        <tab id="amasty" translate="label" sortOrder="10">
+            <label>Amasty</label>
+        </tab>
+        <section id="amasty_helloworld" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Amasty_HelloWorld</label>
+            <tab>amasty</tab>
+            <resource>Amasty_HelloWorld::amasty_helloworld</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>General</label>
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Hello World</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        Comment for `Enable Hello World` setting.
+                    </comment>
+                </field>
+                <field id="block_label" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Block Label</label>
+                </field>
+                <field id="text_align" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Text Align</label>
+                    <source_model>Amasty\HelloWorld\Model\Source\Align</source_model>
+                </field>
+
+                <!-- upload field for single image file, display on all store product pages -->
+                <field id="custom_file_upload" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="40" showInDefault="1" showInWebsite="1" >
+                    <!-- field label -->
+                    <label>Upload Store Image</label>
+                    <!-- comment to inform user about file types allowed for upload -->
+                    <comment>Allowed file types: jpg, jpeg, gif, png</comment>
+                    <!-- refer to ImageModel.php file -->
+                    <backend_model>Amasty\HelloWorld\Model\ImageModel</backend_model>
+                    <!-- upload directory is 'magento_root/pub/media/test/default' -->
+                    <upload_dir config="system" scope_info="1">test</upload_dir>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>
